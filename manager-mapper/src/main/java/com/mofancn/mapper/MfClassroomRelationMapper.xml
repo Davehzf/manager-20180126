@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mofancn.mapper.MfClassroomRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.mofancn.pojo.MfClassroomRelation" >
+    <id column="mf_relation_id" property="mfRelationId" jdbcType="INTEGER" />
+    <result column="valid" property="valid" jdbcType="TINYINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="classroom_id" property="classroomId" jdbcType="BIGINT" />
+    <result column="record" property="record" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="update_time" property="updateTime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    mf_relation_id, valid, user_id, classroom_id, record, create_time, update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mofancn.pojo.MfClassroomRelationExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mf_classroom_relation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from mf_classroom_relation
+    where mf_relation_id = #{mfRelationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from mf_classroom_relation
+    where mf_relation_id = #{mfRelationId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mofancn.pojo.MfClassroomRelationExample" >
+    delete from mf_classroom_relation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mofancn.pojo.MfClassroomRelation" >
+    insert into mf_classroom_relation (mf_relation_id, valid, user_id, 
+      classroom_id, record, create_time, 
+      update_time)
+    values (#{mfRelationId,jdbcType=INTEGER}, #{valid,jdbcType=TINYINT}, #{userId,jdbcType=BIGINT}, 
+      #{classroomId,jdbcType=BIGINT}, #{record,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, 
+      #{updateTime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mofancn.pojo.MfClassroomRelation" >
+    insert into mf_classroom_relation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mfRelationId != null" >
+        mf_relation_id,
+      </if>
+      <if test="valid != null" >
+        valid,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="classroomId != null" >
+        classroom_id,
+      </if>
+      <if test="record != null" >
+        record,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mfRelationId != null" >
+        #{mfRelationId,jdbcType=INTEGER},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="classroomId != null" >
+        #{classroomId,jdbcType=BIGINT},
+      </if>
+      <if test="record != null" >
+        #{record,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mofancn.pojo.MfClassroomRelationExample" resultType="java.lang.Integer" >
+    select count(*) from mf_classroom_relation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mf_classroom_relation
+    <set >
+      <if test="record.mfRelationId != null" >
+        mf_relation_id = #{record.mfRelationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.valid != null" >
+        valid = #{record.valid,jdbcType=TINYINT},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.classroomId != null" >
+        classroom_id = #{record.classroomId,jdbcType=BIGINT},
+      </if>
+      <if test="record.record != null" >
+        record = #{record.record,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=DATE},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mf_classroom_relation
+    set mf_relation_id = #{record.mfRelationId,jdbcType=INTEGER},
+      valid = #{record.valid,jdbcType=TINYINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      classroom_id = #{record.classroomId,jdbcType=BIGINT},
+      record = #{record.record,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=DATE},
+      update_time = #{record.updateTime,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mofancn.pojo.MfClassroomRelation" >
+    update mf_classroom_relation
+    <set >
+      <if test="valid != null" >
+        valid = #{valid,jdbcType=TINYINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="classroomId != null" >
+        classroom_id = #{classroomId,jdbcType=BIGINT},
+      </if>
+      <if test="record != null" >
+        record = #{record,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=DATE},
+      </if>
+    </set>
+    where mf_relation_id = #{mfRelationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mofancn.pojo.MfClassroomRelation" >
+    update mf_classroom_relation
+    set valid = #{valid,jdbcType=TINYINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      classroom_id = #{classroomId,jdbcType=BIGINT},
+      record = #{record,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=DATE},
+      update_time = #{updateTime,jdbcType=DATE}
+    where mf_relation_id = #{mfRelationId,jdbcType=INTEGER}
+  </update>
+</mapper>

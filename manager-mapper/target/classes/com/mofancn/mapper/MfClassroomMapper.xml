@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mofancn.mapper.MfClassroomMapper" >
+  <resultMap id="BaseResultMap" type="com.mofancn.pojo.MfClassroom" >
+    <id column="classroom_id" property="classroomId" jdbcType="BIGINT" />
+    <result column="classroom_valid" property="classroomValid" jdbcType="TINYINT" />
+    <result column="classroom_name" property="classroomName" jdbcType="VARCHAR" />
+    <result column="classroom_manager" property="classroomManager" jdbcType="BIGINT" />
+    <result column="classroom_password" property="classroomPassword" jdbcType="VARCHAR" />
+    <result column="classroom_credit" property="classroomCredit" jdbcType="INTEGER" />
+    <result column="classroom_period" property="classroomPeriod" jdbcType="INTEGER" />
+    <result column="classroom_schooltime" property="classroomSchooltime" jdbcType="TIMESTAMP" />
+    <result column="classroom_repetition" property="classroomRepetition" jdbcType="VARCHAR" />
+    <result column="classroom_place" property="classroomPlace" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    classroom_id, classroom_valid, classroom_name, classroom_manager, classroom_password, 
+    classroom_credit, classroom_period, classroom_schooltime, classroom_repetition, classroom_place, 
+    create_time, update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mofancn.pojo.MfClassroomExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mf_classroom
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from mf_classroom
+    where classroom_id = #{classroomId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from mf_classroom
+    where classroom_id = #{classroomId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mofancn.pojo.MfClassroomExample" >
+    delete from mf_classroom
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mofancn.pojo.MfClassroom" >
+    insert into mf_classroom (classroom_id, classroom_valid, classroom_name, 
+      classroom_manager, classroom_password, classroom_credit, 
+      classroom_period, classroom_schooltime, 
+      classroom_repetition, classroom_place, create_time, 
+      update_time)
+    values (#{classroomId,jdbcType=BIGINT}, #{classroomValid,jdbcType=TINYINT}, #{classroomName,jdbcType=VARCHAR}, 
+      #{classroomManager,jdbcType=BIGINT}, #{classroomPassword,jdbcType=VARCHAR}, #{classroomCredit,jdbcType=INTEGER}, 
+      #{classroomPeriod,jdbcType=INTEGER}, #{classroomSchooltime,jdbcType=TIMESTAMP}, 
+      #{classroomRepetition,jdbcType=VARCHAR}, #{classroomPlace,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mofancn.pojo.MfClassroom" >
+    insert into mf_classroom
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="classroomId != null" >
+        classroom_id,
+      </if>
+      <if test="classroomValid != null" >
+        classroom_valid,
+      </if>
+      <if test="classroomName != null" >
+        classroom_name,
+      </if>
+      <if test="classroomManager != null" >
+        classroom_manager,
+      </if>
+      <if test="classroomPassword != null" >
+        classroom_password,
+      </if>
+      <if test="classroomCredit != null" >
+        classroom_credit,
+      </if>
+      <if test="classroomPeriod != null" >
+        classroom_period,
+      </if>
+      <if test="classroomSchooltime != null" >
+        classroom_schooltime,
+      </if>
+      <if test="classroomRepetition != null" >
+        classroom_repetition,
+      </if>
+      <if test="classroomPlace != null" >
+        classroom_place,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="classroomId != null" >
+        #{classroomId,jdbcType=BIGINT},
+      </if>
+      <if test="classroomValid != null" >
+        #{classroomValid,jdbcType=TINYINT},
+      </if>
+      <if test="classroomName != null" >
+        #{classroomName,jdbcType=VARCHAR},
+      </if>
+      <if test="classroomManager != null" >
+        #{classroomManager,jdbcType=BIGINT},
+      </if>
+      <if test="classroomPassword != null" >
+        #{classroomPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="classroomCredit != null" >
+        #{classroomCredit,jdbcType=INTEGER},
+      </if>
+      <if test="classroomPeriod != null" >
+        #{classroomPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="classroomSchooltime != null" >
+        #{classroomSchooltime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classroomRepetition != null" >
+        #{classroomRepetition,jdbcType=VARCHAR},
+      </if>
+      <if test="classroomPlace != null" >
+        #{classroomPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mofancn.pojo.MfClassroomExample" resultType="java.lang.Integer" >
+    select count(*) from mf_classroom
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mf_classroom
+    <set >
+      <if test="record.classroomId != null" >
+        classroom_id = #{record.classroomId,jdbcType=BIGINT},
+      </if>
+      <if test="record.classroomValid != null" >
+        classroom_valid = #{record.classroomValid,jdbcType=TINYINT},
+      </if>
+      <if test="record.classroomName != null" >
+        classroom_name = #{record.classroomName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classroomManager != null" >
+        classroom_manager = #{record.classroomManager,jdbcType=BIGINT},
+      </if>
+      <if test="record.classroomPassword != null" >
+        classroom_password = #{record.classroomPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classroomCredit != null" >
+        classroom_credit = #{record.classroomCredit,jdbcType=INTEGER},
+      </if>
+      <if test="record.classroomPeriod != null" >
+        classroom_period = #{record.classroomPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="record.classroomSchooltime != null" >
+        classroom_schooltime = #{record.classroomSchooltime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.classroomRepetition != null" >
+        classroom_repetition = #{record.classroomRepetition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classroomPlace != null" >
+        classroom_place = #{record.classroomPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mf_classroom
+    set classroom_id = #{record.classroomId,jdbcType=BIGINT},
+      classroom_valid = #{record.classroomValid,jdbcType=TINYINT},
+      classroom_name = #{record.classroomName,jdbcType=VARCHAR},
+      classroom_manager = #{record.classroomManager,jdbcType=BIGINT},
+      classroom_password = #{record.classroomPassword,jdbcType=VARCHAR},
+      classroom_credit = #{record.classroomCredit,jdbcType=INTEGER},
+      classroom_period = #{record.classroomPeriod,jdbcType=INTEGER},
+      classroom_schooltime = #{record.classroomSchooltime,jdbcType=TIMESTAMP},
+      classroom_repetition = #{record.classroomRepetition,jdbcType=VARCHAR},
+      classroom_place = #{record.classroomPlace,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mofancn.pojo.MfClassroom" >
+    update mf_classroom
+    <set >
+      <if test="classroomValid != null" >
+        classroom_valid = #{classroomValid,jdbcType=TINYINT},
+      </if>
+      <if test="classroomName != null" >
+        classroom_name = #{classroomName,jdbcType=VARCHAR},
+      </if>
+      <if test="classroomManager != null" >
+        classroom_manager = #{classroomManager,jdbcType=BIGINT},
+      </if>
+      <if test="classroomPassword != null" >
+        classroom_password = #{classroomPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="classroomCredit != null" >
+        classroom_credit = #{classroomCredit,jdbcType=INTEGER},
+      </if>
+      <if test="classroomPeriod != null" >
+        classroom_period = #{classroomPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="classroomSchooltime != null" >
+        classroom_schooltime = #{classroomSchooltime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classroomRepetition != null" >
+        classroom_repetition = #{classroomRepetition,jdbcType=VARCHAR},
+      </if>
+      <if test="classroomPlace != null" >
+        classroom_place = #{classroomPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where classroom_id = #{classroomId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mofancn.pojo.MfClassroom" >
+    update mf_classroom
+    set classroom_valid = #{classroomValid,jdbcType=TINYINT},
+      classroom_name = #{classroomName,jdbcType=VARCHAR},
+      classroom_manager = #{classroomManager,jdbcType=BIGINT},
+      classroom_password = #{classroomPassword,jdbcType=VARCHAR},
+      classroom_credit = #{classroomCredit,jdbcType=INTEGER},
+      classroom_period = #{classroomPeriod,jdbcType=INTEGER},
+      classroom_schooltime = #{classroomSchooltime,jdbcType=TIMESTAMP},
+      classroom_repetition = #{classroomRepetition,jdbcType=VARCHAR},
+      classroom_place = #{classroomPlace,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where classroom_id = #{classroomId,jdbcType=BIGINT}
+  </update>
+</mapper>

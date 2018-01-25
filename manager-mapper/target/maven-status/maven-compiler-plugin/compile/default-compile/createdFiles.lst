@@ -1,0 +1,17 @@
+com\mofancn\mapper\TbItemParamItemMapper.class
+com\mofancn\mapper\TbContentCategoryMapper.class
+com\mofancn\mapper\MfClassroomMapper.class
+com\mofancn\mapper\TbOrderShippingMapper.class
+com\mofancn\mapper\TbOrderMapper.class
+com\mofancn\mapper\TbContentMapper.class
+com\mofancn\mapper\TbItemCatMapper.class
+com\mofancn\mapper\MfUserMapper.class
+com\mofancn\mapper\MfClassroomUserSignInMapper.class
+com\mofancn\mapper\MfUserLoginMapper.class
+com\mofancn\mapper\TbUserMapper.class
+com\mofancn\mapper\TbItemMapper.class
+com\mofancn\mapper\TbItemParamMapper.class
+com\mofancn\mapper\MfClassroomSignInMapper.class
+com\mofancn\mapper\TbItemDescMapper.class
+com\mofancn\mapper\MfClassroomRelationMapper.class
+com\mofancn\mapper\TbOrderItemMapper.class

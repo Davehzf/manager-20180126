@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mofancn.mapper.MfUserLoginMapper" >
+  <resultMap id="BaseResultMap" type="com.mofancn.pojo.MfUserLogin" >
+    <id column="user_login_id" property="userLoginId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="user_login_ip" property="userLoginIp" jdbcType="CHAR" />
+    <result column="user_login_type" property="userLoginType" jdbcType="VARCHAR" />
+    <result column="user_login_time" property="userLoginTime" jdbcType="TIMESTAMP" />
+    <result column="user_login_update_time" property="userLoginUpdateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    user_login_id, user_id, user_login_ip, user_login_type, user_login_time, user_login_update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mofancn.pojo.MfUserLoginExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mf_user_login
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from mf_user_login
+    where user_login_id = #{userLoginId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from mf_user_login
+    where user_login_id = #{userLoginId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mofancn.pojo.MfUserLoginExample" >
+    delete from mf_user_login
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mofancn.pojo.MfUserLogin" >
+    insert into mf_user_login (user_login_id, user_id, user_login_ip, 
+      user_login_type, user_login_time, user_login_update_time
+      )
+    values (#{userLoginId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{userLoginIp,jdbcType=CHAR}, 
+      #{userLoginType,jdbcType=VARCHAR}, #{userLoginTime,jdbcType=TIMESTAMP}, #{userLoginUpdateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mofancn.pojo.MfUserLogin" >
+    insert into mf_user_login
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userLoginId != null" >
+        user_login_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userLoginIp != null" >
+        user_login_ip,
+      </if>
+      <if test="userLoginType != null" >
+        user_login_type,
+      </if>
+      <if test="userLoginTime != null" >
+        user_login_time,
+      </if>
+      <if test="userLoginUpdateTime != null" >
+        user_login_update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userLoginId != null" >
+        #{userLoginId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userLoginIp != null" >
+        #{userLoginIp,jdbcType=CHAR},
+      </if>
+      <if test="userLoginType != null" >
+        #{userLoginType,jdbcType=VARCHAR},
+      </if>
+      <if test="userLoginTime != null" >
+        #{userLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userLoginUpdateTime != null" >
+        #{userLoginUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mofancn.pojo.MfUserLoginExample" resultType="java.lang.Integer" >
+    select count(*) from mf_user_login
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mf_user_login
+    <set >
+      <if test="record.userLoginId != null" >
+        user_login_id = #{record.userLoginId,jdbcType=BIGINT},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.userLoginIp != null" >
+        user_login_ip = #{record.userLoginIp,jdbcType=CHAR},
+      </if>
+      <if test="record.userLoginType != null" >
+        user_login_type = #{record.userLoginType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userLoginTime != null" >
+        user_login_time = #{record.userLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userLoginUpdateTime != null" >
+        user_login_update_time = #{record.userLoginUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mf_user_login
+    set user_login_id = #{record.userLoginId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      user_login_ip = #{record.userLoginIp,jdbcType=CHAR},
+      user_login_type = #{record.userLoginType,jdbcType=VARCHAR},
+      user_login_time = #{record.userLoginTime,jdbcType=TIMESTAMP},
+      user_login_update_time = #{record.userLoginUpdateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mofancn.pojo.MfUserLogin" >
+    update mf_user_login
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userLoginIp != null" >
+        user_login_ip = #{userLoginIp,jdbcType=CHAR},
+      </if>
+      <if test="userLoginType != null" >
+        user_login_type = #{userLoginType,jdbcType=VARCHAR},
+      </if>
+      <if test="userLoginTime != null" >
+        user_login_time = #{userLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userLoginUpdateTime != null" >
+        user_login_update_time = #{userLoginUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_login_id = #{userLoginId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mofancn.pojo.MfUserLogin" >
+    update mf_user_login
+    set user_id = #{userId,jdbcType=BIGINT},
+      user_login_ip = #{userLoginIp,jdbcType=CHAR},
+      user_login_type = #{userLoginType,jdbcType=VARCHAR},
+      user_login_time = #{userLoginTime,jdbcType=TIMESTAMP},
+      user_login_update_time = #{userLoginUpdateTime,jdbcType=TIMESTAMP}
+    where user_login_id = #{userLoginId,jdbcType=BIGINT}
+  </update>
+</mapper>

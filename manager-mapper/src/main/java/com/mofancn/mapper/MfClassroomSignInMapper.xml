@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mofancn.mapper.MfClassroomSignInMapper" >
+  <resultMap id="BaseResultMap" type="com.mofancn.pojo.MfClassroomSignIn" >
+    <id column="classroom_sign_in_id" property="classroomSignInId" jdbcType="BIGINT" />
+    <result column="classroom_sign_in_manager" property="classroomSignInManager" jdbcType="BIGINT" />
+    <result column="classroom_id" property="classroomId" jdbcType="BIGINT" />
+    <result column="classroom_sign_in_valid" property="classroomSignInValid" jdbcType="TINYINT" />
+    <result column="classroom_sign_in_start_time" property="classroomSignInStartTime" jdbcType="TIMESTAMP" />
+    <result column="classroom_sign_in_end_time" property="classroomSignInEndTime" jdbcType="TIMESTAMP" />
+    <result column="classroom_sign_in_password" property="classroomSignInPassword" jdbcType="VARCHAR" />
+    <result column="classroom_sign_in_latitude" property="classroomSignInLatitude" jdbcType="DECIMAL" />
+    <result column="classroom_sign_in_longitude" property="classroomSignInLongitude" jdbcType="DECIMAL" />
+    <result column="classroom_sign_in_accuracy" property="classroomSignInAccuracy" jdbcType="DECIMAL" />
+    <result column="classroom_sign_in_create_time" property="classroomSignInCreateTime" jdbcType="TIMESTAMP" />
+    <result column="classroom_sign_in_update_time" property="classroomSignInUpdateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    classroom_sign_in_id, classroom_sign_in_manager, classroom_id, classroom_sign_in_valid, 
+    classroom_sign_in_start_time, classroom_sign_in_end_time, classroom_sign_in_password, 
+    classroom_sign_in_latitude, classroom_sign_in_longitude, classroom_sign_in_accuracy, 
+    classroom_sign_in_create_time, classroom_sign_in_update_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mofancn.pojo.MfClassroomSignInExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mf_classroom_sign_in
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from mf_classroom_sign_in
+    where classroom_sign_in_id = #{classroomSignInId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from mf_classroom_sign_in
+    where classroom_sign_in_id = #{classroomSignInId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mofancn.pojo.MfClassroomSignInExample" >
+    delete from mf_classroom_sign_in
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" useGeneratedKeys="true" keyProperty="classroomSignInId" parameterType="com.mofancn.pojo.MfClassroomSignIn" >
+    insert into mf_classroom_sign_in (classroom_sign_in_id, classroom_sign_in_manager, 
+      classroom_id, classroom_sign_in_valid, classroom_sign_in_start_time, 
+      classroom_sign_in_end_time, classroom_sign_in_password, 
+      classroom_sign_in_latitude, classroom_sign_in_longitude, 
+      classroom_sign_in_accuracy, classroom_sign_in_create_time, 
+      classroom_sign_in_update_time)
+    values (#{classroomSignInId,jdbcType=BIGINT}, #{classroomSignInManager,jdbcType=BIGINT}, 
+      #{classroomId,jdbcType=BIGINT}, #{classroomSignInValid,jdbcType=TINYINT}, #{classroomSignInStartTime,jdbcType=TIMESTAMP}, 
+      #{classroomSignInEndTime,jdbcType=TIMESTAMP}, #{classroomSignInPassword,jdbcType=VARCHAR}, 
+      #{classroomSignInLatitude,jdbcType=DECIMAL}, #{classroomSignInLongitude,jdbcType=DECIMAL}, 
+      #{classroomSignInAccuracy,jdbcType=DECIMAL}, #{classroomSignInCreateTime,jdbcType=TIMESTAMP}, 
+      #{classroomSignInUpdateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mofancn.pojo.MfClassroomSignIn" >
+    insert into mf_classroom_sign_in
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="classroomSignInId != null" >
+        classroom_sign_in_id,
+      </if>
+      <if test="classroomSignInManager != null" >
+        classroom_sign_in_manager,
+      </if>
+      <if test="classroomId != null" >
+        classroom_id,
+      </if>
+      <if test="classroomSignInValid != null" >
+        classroom_sign_in_valid,
+      </if>
+      <if test="classroomSignInStartTime != null" >
+        classroom_sign_in_start_time,
+      </if>
+      <if test="classroomSignInEndTime != null" >
+        classroom_sign_in_end_time,
+      </if>
+      <if test="classroomSignInPassword != null" >
+        classroom_sign_in_password,
+      </if>
+      <if test="classroomSignInLatitude != null" >
+        classroom_sign_in_latitude,
+      </if>
+      <if test="classroomSignInLongitude != null" >
+        classroom_sign_in_longitude,
+      </if>
+      <if test="classroomSignInAccuracy != null" >
+        classroom_sign_in_accuracy,
+      </if>
+      <if test="classroomSignInCreateTime != null" >
+        classroom_sign_in_create_time,
+      </if>
+      <if test="classroomSignInUpdateTime != null" >
+        classroom_sign_in_update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="classroomSignInId != null" >
+        #{classroomSignInId,jdbcType=BIGINT},
+      </if>
+      <if test="classroomSignInManager != null" >
+        #{classroomSignInManager,jdbcType=BIGINT},
+      </if>
+      <if test="classroomId != null" >
+        #{classroomId,jdbcType=BIGINT},
+      </if>
+      <if test="classroomSignInValid != null" >
+        #{classroomSignInValid,jdbcType=TINYINT},
+      </if>
+      <if test="classroomSignInStartTime != null" >
+        #{classroomSignInStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classroomSignInEndTime != null" >
+        #{classroomSignInEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classroomSignInPassword != null" >
+        #{classroomSignInPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="classroomSignInLatitude != null" >
+        #{classroomSignInLatitude,jdbcType=DECIMAL},
+      </if>
+      <if test="classroomSignInLongitude != null" >
+        #{classroomSignInLongitude,jdbcType=DECIMAL},
+      </if>
+      <if test="classroomSignInAccuracy != null" >
+        #{classroomSignInAccuracy,jdbcType=DECIMAL},
+      </if>
+      <if test="classroomSignInCreateTime != null" >
+        #{classroomSignInCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classroomSignInUpdateTime != null" >
+        #{classroomSignInUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mofancn.pojo.MfClassroomSignInExample" resultType="java.lang.Integer" >
+    select count(*) from mf_classroom_sign_in
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update mf_classroom_sign_in
+    <set >
+      <if test="record.classroomSignInId != null" >
+        classroom_sign_in_id = #{record.classroomSignInId,jdbcType=BIGINT},
+      </if>
+      <if test="record.classroomSignInManager != null" >
+        classroom_sign_in_manager = #{record.classroomSignInManager,jdbcType=BIGINT},
+      </if>
+      <if test="record.classroomId != null" >
+        classroom_id = #{record.classroomId,jdbcType=BIGINT},
+      </if>
+      <if test="record.classroomSignInValid != null" >
+        classroom_sign_in_valid = #{record.classroomSignInValid,jdbcType=TINYINT},
+      </if>
+      <if test="record.classroomSignInStartTime != null" >
+        classroom_sign_in_start_time = #{record.classroomSignInStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.classroomSignInEndTime != null" >
+        classroom_sign_in_end_time = #{record.classroomSignInEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.classroomSignInPassword != null" >
+        classroom_sign_in_password = #{record.classroomSignInPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classroomSignInLatitude != null" >
+        classroom_sign_in_latitude = #{record.classroomSignInLatitude,jdbcType=DECIMAL},
+      </if>
+      <if test="record.classroomSignInLongitude != null" >
+        classroom_sign_in_longitude = #{record.classroomSignInLongitude,jdbcType=DECIMAL},
+      </if>
+      <if test="record.classroomSignInAccuracy != null" >
+        classroom_sign_in_accuracy = #{record.classroomSignInAccuracy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.classroomSignInCreateTime != null" >
+        classroom_sign_in_create_time = #{record.classroomSignInCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.classroomSignInUpdateTime != null" >
+        classroom_sign_in_update_time = #{record.classroomSignInUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update mf_classroom_sign_in
+    set classroom_sign_in_id = #{record.classroomSignInId,jdbcType=BIGINT},
+      classroom_sign_in_manager = #{record.classroomSignInManager,jdbcType=BIGINT},
+      classroom_id = #{record.classroomId,jdbcType=BIGINT},
+      classroom_sign_in_valid = #{record.classroomSignInValid,jdbcType=TINYINT},
+      classroom_sign_in_start_time = #{record.classroomSignInStartTime,jdbcType=TIMESTAMP},
+      classroom_sign_in_end_time = #{record.classroomSignInEndTime,jdbcType=TIMESTAMP},
+      classroom_sign_in_password = #{record.classroomSignInPassword,jdbcType=VARCHAR},
+      classroom_sign_in_latitude = #{record.classroomSignInLatitude,jdbcType=DECIMAL},
+      classroom_sign_in_longitude = #{record.classroomSignInLongitude,jdbcType=DECIMAL},
+      classroom_sign_in_accuracy = #{record.classroomSignInAccuracy,jdbcType=DECIMAL},
+      classroom_sign_in_create_time = #{record.classroomSignInCreateTime,jdbcType=TIMESTAMP},
+      classroom_sign_in_update_time = #{record.classroomSignInUpdateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mofancn.pojo.MfClassroomSignIn" >
+    update mf_classroom_sign_in
+    <set >
+      <if test="classroomSignInManager != null" >
+        classroom_sign_in_manager = #{classroomSignInManager,jdbcType=BIGINT},
+      </if>
+      <if test="classroomId != null" >
+        classroom_id = #{classroomId,jdbcType=BIGINT},
+      </if>
+      <if test="classroomSignInValid != null" >
+        classroom_sign_in_valid = #{classroomSignInValid,jdbcType=TINYINT},
+      </if>
+      <if test="classroomSignInStartTime != null" >
+        classroom_sign_in_start_time = #{classroomSignInStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classroomSignInEndTime != null" >
+        classroom_sign_in_end_time = #{classroomSignInEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classroomSignInPassword != null" >
+        classroom_sign_in_password = #{classroomSignInPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="classroomSignInLatitude != null" >
+        classroom_sign_in_latitude = #{classroomSignInLatitude,jdbcType=DECIMAL},
+      </if>
+      <if test="classroomSignInLongitude != null" >
+        classroom_sign_in_longitude = #{classroomSignInLongitude,jdbcType=DECIMAL},
+      </if>
+      <if test="classroomSignInAccuracy != null" >
+        classroom_sign_in_accuracy = #{classroomSignInAccuracy,jdbcType=DECIMAL},
+      </if>
+      <if test="classroomSignInCreateTime != null" >
+        classroom_sign_in_create_time = #{classroomSignInCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="classroomSignInUpdateTime != null" >
+        classroom_sign_in_update_time = #{classroomSignInUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where classroom_sign_in_id = #{classroomSignInId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mofancn.pojo.MfClassroomSignIn" >
+    update mf_classroom_sign_in
+    set classroom_sign_in_manager = #{classroomSignInManager,jdbcType=BIGINT},
+      classroom_id = #{classroomId,jdbcType=BIGINT},
+      classroom_sign_in_valid = #{classroomSignInValid,jdbcType=TINYINT},
+      classroom_sign_in_start_time = #{classroomSignInStartTime,jdbcType=TIMESTAMP},
+      classroom_sign_in_end_time = #{classroomSignInEndTime,jdbcType=TIMESTAMP},
+      classroom_sign_in_password = #{classroomSignInPassword,jdbcType=VARCHAR},
+      classroom_sign_in_latitude = #{classroomSignInLatitude,jdbcType=DECIMAL},
+      classroom_sign_in_longitude = #{classroomSignInLongitude,jdbcType=DECIMAL},
+      classroom_sign_in_accuracy = #{classroomSignInAccuracy,jdbcType=DECIMAL},
+      classroom_sign_in_create_time = #{classroomSignInCreateTime,jdbcType=TIMESTAMP},
+      classroom_sign_in_update_time = #{classroomSignInUpdateTime,jdbcType=TIMESTAMP}
+    where classroom_sign_in_id = #{classroomSignInId,jdbcType=BIGINT}
+  </update>
+</mapper>
