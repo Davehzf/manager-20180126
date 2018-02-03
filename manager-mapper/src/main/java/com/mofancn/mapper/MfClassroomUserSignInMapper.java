@@ -10,7 +10,7 @@ public interface MfClassroomUserSignInMapper {
 
     int deleteByExample(MfClassroomUserSignInExample example);
 
-    int deleteByPrimaryKey(Long signInId);
+    int deleteByPrimaryKey(Long userSignInId);
 
     int insert(MfClassroomUserSignIn record);
 
@@ -18,7 +18,7 @@ public interface MfClassroomUserSignInMapper {
 
     List<MfClassroomUserSignIn> selectByExample(MfClassroomUserSignInExample example);
 
-    MfClassroomUserSignIn selectByPrimaryKey(Long signInId);
+    MfClassroomUserSignIn selectByPrimaryKey(Long userSignInId);
 
     int updateByExampleSelective(@Param("record") MfClassroomUserSignIn record, @Param("example") MfClassroomUserSignInExample example);
 

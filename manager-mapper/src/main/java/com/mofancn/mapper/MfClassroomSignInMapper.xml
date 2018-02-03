@@ -109,7 +109,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" useGeneratedKeys="true" keyProperty="classroomSignInId" parameterType="com.mofancn.pojo.MfClassroomSignIn" >
+  <insert id="insert"  useGeneratedKeys="true" keyProperty="classroomSignInId" parameterType="com.mofancn.pojo.MfClassroomSignIn">
     insert into mf_classroom_sign_in (classroom_sign_in_id, classroom_sign_in_manager, 
       classroom_id, classroom_sign_in_valid, classroom_sign_in_start_time, 
       classroom_sign_in_end_time, classroom_sign_in_password, 

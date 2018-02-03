@@ -555,52 +555,52 @@ public class MfClassroomExample {
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSchooltimeEqualTo(Date value) {
+        public Criteria andClassroomSchooltimeEqualTo(Integer value) {
             addCriterion("classroom_schooltime =", value, "classroomSchooltime");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSchooltimeNotEqualTo(Date value) {
+        public Criteria andClassroomSchooltimeNotEqualTo(Integer value) {
             addCriterion("classroom_schooltime <>", value, "classroomSchooltime");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSchooltimeGreaterThan(Date value) {
+        public Criteria andClassroomSchooltimeGreaterThan(Integer value) {
             addCriterion("classroom_schooltime >", value, "classroomSchooltime");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSchooltimeGreaterThanOrEqualTo(Date value) {
+        public Criteria andClassroomSchooltimeGreaterThanOrEqualTo(Integer value) {
             addCriterion("classroom_schooltime >=", value, "classroomSchooltime");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSchooltimeLessThan(Date value) {
+        public Criteria andClassroomSchooltimeLessThan(Integer value) {
             addCriterion("classroom_schooltime <", value, "classroomSchooltime");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSchooltimeLessThanOrEqualTo(Date value) {
+        public Criteria andClassroomSchooltimeLessThanOrEqualTo(Integer value) {
             addCriterion("classroom_schooltime <=", value, "classroomSchooltime");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSchooltimeIn(List<Date> values) {
+        public Criteria andClassroomSchooltimeIn(List<Integer> values) {
             addCriterion("classroom_schooltime in", values, "classroomSchooltime");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSchooltimeNotIn(List<Date> values) {
+        public Criteria andClassroomSchooltimeNotIn(List<Integer> values) {
             addCriterion("classroom_schooltime not in", values, "classroomSchooltime");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSchooltimeBetween(Date value1, Date value2) {
+        public Criteria andClassroomSchooltimeBetween(Integer value1, Integer value2) {
             addCriterion("classroom_schooltime between", value1, value2, "classroomSchooltime");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSchooltimeNotBetween(Date value1, Date value2) {
+        public Criteria andClassroomSchooltimeNotBetween(Integer value1, Integer value2) {
             addCriterion("classroom_schooltime not between", value1, value2, "classroomSchooltime");
             return (Criteria) this;
         }
@@ -615,62 +615,52 @@ public class MfClassroomExample {
             return (Criteria) this;
         }
 
-        public Criteria andClassroomRepetitionEqualTo(String value) {
+        public Criteria andClassroomRepetitionEqualTo(Integer value) {
             addCriterion("classroom_repetition =", value, "classroomRepetition");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomRepetitionNotEqualTo(String value) {
+        public Criteria andClassroomRepetitionNotEqualTo(Integer value) {
             addCriterion("classroom_repetition <>", value, "classroomRepetition");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomRepetitionGreaterThan(String value) {
+        public Criteria andClassroomRepetitionGreaterThan(Integer value) {
             addCriterion("classroom_repetition >", value, "classroomRepetition");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomRepetitionGreaterThanOrEqualTo(String value) {
+        public Criteria andClassroomRepetitionGreaterThanOrEqualTo(Integer value) {
             addCriterion("classroom_repetition >=", value, "classroomRepetition");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomRepetitionLessThan(String value) {
+        public Criteria andClassroomRepetitionLessThan(Integer value) {
             addCriterion("classroom_repetition <", value, "classroomRepetition");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomRepetitionLessThanOrEqualTo(String value) {
+        public Criteria andClassroomRepetitionLessThanOrEqualTo(Integer value) {
             addCriterion("classroom_repetition <=", value, "classroomRepetition");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomRepetitionLike(String value) {
-            addCriterion("classroom_repetition like", value, "classroomRepetition");
-            return (Criteria) this;
-        }
-
-        public Criteria andClassroomRepetitionNotLike(String value) {
-            addCriterion("classroom_repetition not like", value, "classroomRepetition");
-            return (Criteria) this;
-        }
-
-        public Criteria andClassroomRepetitionIn(List<String> values) {
+        public Criteria andClassroomRepetitionIn(List<Integer> values) {
             addCriterion("classroom_repetition in", values, "classroomRepetition");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomRepetitionNotIn(List<String> values) {
+        public Criteria andClassroomRepetitionNotIn(List<Integer> values) {
             addCriterion("classroom_repetition not in", values, "classroomRepetition");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomRepetitionBetween(String value1, String value2) {
+        public Criteria andClassroomRepetitionBetween(Integer value1, Integer value2) {
             addCriterion("classroom_repetition between", value1, value2, "classroomRepetition");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomRepetitionNotBetween(String value1, String value2) {
+        public Criteria andClassroomRepetitionNotBetween(Integer value1, Integer value2) {
             addCriterion("classroom_repetition not between", value1, value2, "classroomRepetition");
             return (Criteria) this;
         }

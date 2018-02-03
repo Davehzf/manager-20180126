@@ -9,8 +9,8 @@
     <result column="classroom_password" property="classroomPassword" jdbcType="VARCHAR" />
     <result column="classroom_credit" property="classroomCredit" jdbcType="INTEGER" />
     <result column="classroom_period" property="classroomPeriod" jdbcType="INTEGER" />
-    <result column="classroom_schooltime" property="classroomSchooltime" jdbcType="TIMESTAMP" />
-    <result column="classroom_repetition" property="classroomRepetition" jdbcType="VARCHAR" />
+    <result column="classroom_schooltime" property="classroomSchooltime" jdbcType="INTEGER" />
+    <result column="classroom_repetition" property="classroomRepetition" jdbcType="INTEGER" />
     <result column="classroom_place" property="classroomPlace" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
@@ -111,14 +111,14 @@
   <insert id="insert" parameterType="com.mofancn.pojo.MfClassroom" >
     insert into mf_classroom (classroom_id, classroom_valid, classroom_name, 
       classroom_manager, classroom_password, classroom_credit, 
-      classroom_period, classroom_schooltime, 
-      classroom_repetition, classroom_place, create_time, 
-      update_time)
+      classroom_period, classroom_schooltime, classroom_repetition, 
+      classroom_place, create_time, update_time
+      )
     values (#{classroomId,jdbcType=BIGINT}, #{classroomValid,jdbcType=TINYINT}, #{classroomName,jdbcType=VARCHAR}, 
       #{classroomManager,jdbcType=BIGINT}, #{classroomPassword,jdbcType=VARCHAR}, #{classroomCredit,jdbcType=INTEGER}, 
-      #{classroomPeriod,jdbcType=INTEGER}, #{classroomSchooltime,jdbcType=TIMESTAMP}, 
-      #{classroomRepetition,jdbcType=VARCHAR}, #{classroomPlace,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+      #{classroomPeriod,jdbcType=INTEGER}, #{classroomSchooltime,jdbcType=INTEGER}, #{classroomRepetition,jdbcType=INTEGER}, 
+      #{classroomPlace,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.mofancn.pojo.MfClassroom" >
     insert into mf_classroom
@@ -183,10 +183,10 @@
         #{classroomPeriod,jdbcType=INTEGER},
       </if>
       <if test="classroomSchooltime != null" >
-        #{classroomSchooltime,jdbcType=TIMESTAMP},
+        #{classroomSchooltime,jdbcType=INTEGER},
       </if>
       <if test="classroomRepetition != null" >
-        #{classroomRepetition,jdbcType=VARCHAR},
+        #{classroomRepetition,jdbcType=INTEGER},
       </if>
       <if test="classroomPlace != null" >
         #{classroomPlace,jdbcType=VARCHAR},
@@ -230,10 +230,10 @@
         classroom_period = #{record.classroomPeriod,jdbcType=INTEGER},
       </if>
       <if test="record.classroomSchooltime != null" >
-        classroom_schooltime = #{record.classroomSchooltime,jdbcType=TIMESTAMP},
+        classroom_schooltime = #{record.classroomSchooltime,jdbcType=INTEGER},
       </if>
       <if test="record.classroomRepetition != null" >
-        classroom_repetition = #{record.classroomRepetition,jdbcType=VARCHAR},
+        classroom_repetition = #{record.classroomRepetition,jdbcType=INTEGER},
       </if>
       <if test="record.classroomPlace != null" >
         classroom_place = #{record.classroomPlace,jdbcType=VARCHAR},
@@ -258,8 +258,8 @@
       classroom_password = #{record.classroomPassword,jdbcType=VARCHAR},
       classroom_credit = #{record.classroomCredit,jdbcType=INTEGER},
       classroom_period = #{record.classroomPeriod,jdbcType=INTEGER},
-      classroom_schooltime = #{record.classroomSchooltime,jdbcType=TIMESTAMP},
-      classroom_repetition = #{record.classroomRepetition,jdbcType=VARCHAR},
+      classroom_schooltime = #{record.classroomSchooltime,jdbcType=INTEGER},
+      classroom_repetition = #{record.classroomRepetition,jdbcType=INTEGER},
       classroom_place = #{record.classroomPlace,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -289,10 +289,10 @@
         classroom_period = #{classroomPeriod,jdbcType=INTEGER},
       </if>
       <if test="classroomSchooltime != null" >
-        classroom_schooltime = #{classroomSchooltime,jdbcType=TIMESTAMP},
+        classroom_schooltime = #{classroomSchooltime,jdbcType=INTEGER},
       </if>
       <if test="classroomRepetition != null" >
-        classroom_repetition = #{classroomRepetition,jdbcType=VARCHAR},
+        classroom_repetition = #{classroomRepetition,jdbcType=INTEGER},
       </if>
       <if test="classroomPlace != null" >
         classroom_place = #{classroomPlace,jdbcType=VARCHAR},
@@ -314,8 +314,8 @@
       classroom_password = #{classroomPassword,jdbcType=VARCHAR},
       classroom_credit = #{classroomCredit,jdbcType=INTEGER},
       classroom_period = #{classroomPeriod,jdbcType=INTEGER},
-      classroom_schooltime = #{classroomSchooltime,jdbcType=TIMESTAMP},
-      classroom_repetition = #{classroomRepetition,jdbcType=VARCHAR},
+      classroom_schooltime = #{classroomSchooltime,jdbcType=INTEGER},
+      classroom_repetition = #{classroomRepetition,jdbcType=INTEGER},
       classroom_place = #{classroomPlace,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}

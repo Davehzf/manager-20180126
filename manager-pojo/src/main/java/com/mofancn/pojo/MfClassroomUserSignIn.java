@@ -3,7 +3,7 @@ package com.mofancn.pojo;
 import java.util.Date;
 
 public class MfClassroomUserSignIn {
-    private Long signInId;
+    private Long userSignInId;
 
     private Long userId;
 
@@ -11,18 +11,20 @@ public class MfClassroomUserSignIn {
 
     private Byte signInType;
 
+    private Long classroomSignInId;
+
     private Long classroomId;
 
     private Date createTime;
 
     private Date updateTime;
 
-    public Long getSignInId() {
-        return signInId;
+    public Long getUserSignInId() {
+        return userSignInId;
     }
 
-    public void setSignInId(Long signInId) {
-        this.signInId = signInId;
+    public void setUserSignInId(Long userSignInId) {
+        this.userSignInId = userSignInId;
     }
 
     public Long getUserId() {
@@ -47,6 +49,14 @@ public class MfClassroomUserSignIn {
 
     public void setSignInType(Byte signInType) {
         this.signInType = signInType;
+    }
+
+    public Long getClassroomSignInId() {
+        return classroomSignInId;
+    }
+
+    public void setClassroomSignInId(Long classroomSignInId) {
+        this.classroomSignInId = classroomSignInId;
     }
 
     public Long getClassroomId() {

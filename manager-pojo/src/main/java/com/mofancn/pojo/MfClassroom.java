@@ -16,11 +16,11 @@ public class MfClassroom {
     private Integer classroomCredit;
 
     private Integer classroomPeriod;
-//上课时间 
-    private Date classroomSchooltime;
-//重复（2的次方，0次方为一次，1次方星期一，类推到星期日，如11111111=255，每周每日重复）
-    private String classroomRepetition;
-//上课地点
+
+    private Integer classroomSchooltime;
+
+    private Integer classroomRepetition;
+
     private String classroomPlace;
 
     private Date createTime;
@@ -83,20 +83,20 @@ public class MfClassroom {
         this.classroomPeriod = classroomPeriod;
     }
 
-    public Date getClassroomSchooltime() {
+    public Integer getClassroomSchooltime() {
         return classroomSchooltime;
     }
 
-    public void setClassroomSchooltime(Date classroomSchooltime) {
+    public void setClassroomSchooltime(Integer classroomSchooltime) {
         this.classroomSchooltime = classroomSchooltime;
     }
 
-    public String getClassroomRepetition() {
+    public Integer getClassroomRepetition() {
         return classroomRepetition;
     }
 
-    public void setClassroomRepetition(String classroomRepetition) {
-        this.classroomRepetition = classroomRepetition == null ? null : classroomRepetition.trim();
+    public void setClassroomRepetition(Integer classroomRepetition) {
+        this.classroomRepetition = classroomRepetition;
     }
 
     public String getClassroomPlace() {

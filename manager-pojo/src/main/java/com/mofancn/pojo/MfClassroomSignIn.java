@@ -1,7 +1,5 @@
 package com.mofancn.pojo;
 
-
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class MfClassroomSignIn {
@@ -19,9 +17,9 @@ public class MfClassroomSignIn {
 
     private String classroomSignInPassword;
 
-    private BigDecimal classroomSignInLatitude;
+    private Double classroomSignInLatitude;
 
-    private BigDecimal classroomSignInLongitude;
+    private Double classroomSignInLongitude;
 
     private Long classroomSignInAccuracy;
 
@@ -85,19 +83,19 @@ public class MfClassroomSignIn {
         this.classroomSignInPassword = classroomSignInPassword == null ? null : classroomSignInPassword.trim();
     }
 
-    public BigDecimal getClassroomSignInLatitude() {
+    public Double getClassroomSignInLatitude() {
         return classroomSignInLatitude;
     }
 
-    public void setClassroomSignInLatitude(BigDecimal classroomSignInLatitude) {
+    public void setClassroomSignInLatitude(Double classroomSignInLatitude) {
         this.classroomSignInLatitude = classroomSignInLatitude;
     }
 
-    public BigDecimal getClassroomSignInLongitude() {
+    public Double getClassroomSignInLongitude() {
         return classroomSignInLongitude;
     }
 
-    public void setClassroomSignInLongitude(BigDecimal classroomSignInLongitude) {
+    public void setClassroomSignInLongitude(Double classroomSignInLongitude) {
         this.classroomSignInLongitude = classroomSignInLongitude;
     }
 

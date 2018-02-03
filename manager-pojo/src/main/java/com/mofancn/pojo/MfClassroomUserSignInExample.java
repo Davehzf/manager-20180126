@@ -105,63 +105,63 @@ public class MfClassroomUserSignInExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andSignInIdIsNull() {
-            addCriterion("sign_in_id is null");
+        public Criteria andUserSignInIdIsNull() {
+            addCriterion("user_sign_in_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andSignInIdIsNotNull() {
-            addCriterion("sign_in_id is not null");
+        public Criteria andUserSignInIdIsNotNull() {
+            addCriterion("user_sign_in_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSignInIdEqualTo(Long value) {
-            addCriterion("sign_in_id =", value, "signInId");
+        public Criteria andUserSignInIdEqualTo(Long value) {
+            addCriterion("user_sign_in_id =", value, "userSignInId");
             return (Criteria) this;
         }
 
-        public Criteria andSignInIdNotEqualTo(Long value) {
-            addCriterion("sign_in_id <>", value, "signInId");
+        public Criteria andUserSignInIdNotEqualTo(Long value) {
+            addCriterion("user_sign_in_id <>", value, "userSignInId");
             return (Criteria) this;
         }
 
-        public Criteria andSignInIdGreaterThan(Long value) {
-            addCriterion("sign_in_id >", value, "signInId");
+        public Criteria andUserSignInIdGreaterThan(Long value) {
+            addCriterion("user_sign_in_id >", value, "userSignInId");
             return (Criteria) this;
         }
 
-        public Criteria andSignInIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("sign_in_id >=", value, "signInId");
+        public Criteria andUserSignInIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("user_sign_in_id >=", value, "userSignInId");
             return (Criteria) this;
         }
 
-        public Criteria andSignInIdLessThan(Long value) {
-            addCriterion("sign_in_id <", value, "signInId");
+        public Criteria andUserSignInIdLessThan(Long value) {
+            addCriterion("user_sign_in_id <", value, "userSignInId");
             return (Criteria) this;
         }
 
-        public Criteria andSignInIdLessThanOrEqualTo(Long value) {
-            addCriterion("sign_in_id <=", value, "signInId");
+        public Criteria andUserSignInIdLessThanOrEqualTo(Long value) {
+            addCriterion("user_sign_in_id <=", value, "userSignInId");
             return (Criteria) this;
         }
 
-        public Criteria andSignInIdIn(List<Long> values) {
-            addCriterion("sign_in_id in", values, "signInId");
+        public Criteria andUserSignInIdIn(List<Long> values) {
+            addCriterion("user_sign_in_id in", values, "userSignInId");
             return (Criteria) this;
         }
 
-        public Criteria andSignInIdNotIn(List<Long> values) {
-            addCriterion("sign_in_id not in", values, "signInId");
+        public Criteria andUserSignInIdNotIn(List<Long> values) {
+            addCriterion("user_sign_in_id not in", values, "userSignInId");
             return (Criteria) this;
         }
 
-        public Criteria andSignInIdBetween(Long value1, Long value2) {
-            addCriterion("sign_in_id between", value1, value2, "signInId");
+        public Criteria andUserSignInIdBetween(Long value1, Long value2) {
+            addCriterion("user_sign_in_id between", value1, value2, "userSignInId");
             return (Criteria) this;
         }
 
-        public Criteria andSignInIdNotBetween(Long value1, Long value2) {
-            addCriterion("sign_in_id not between", value1, value2, "signInId");
+        public Criteria andUserSignInIdNotBetween(Long value1, Long value2) {
+            addCriterion("user_sign_in_id not between", value1, value2, "userSignInId");
             return (Criteria) this;
         }
 
@@ -342,6 +342,66 @@ public class MfClassroomUserSignInExample {
 
         public Criteria andSignInTypeNotBetween(Byte value1, Byte value2) {
             addCriterion("sign_in_type not between", value1, value2, "signInType");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdIsNull() {
+            addCriterion("classroom_sign_in_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdIsNotNull() {
+            addCriterion("classroom_sign_in_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdEqualTo(Long value) {
+            addCriterion("classroom_sign_in_id =", value, "classroomSignInId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdNotEqualTo(Long value) {
+            addCriterion("classroom_sign_in_id <>", value, "classroomSignInId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdGreaterThan(Long value) {
+            addCriterion("classroom_sign_in_id >", value, "classroomSignInId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("classroom_sign_in_id >=", value, "classroomSignInId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdLessThan(Long value) {
+            addCriterion("classroom_sign_in_id <", value, "classroomSignInId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdLessThanOrEqualTo(Long value) {
+            addCriterion("classroom_sign_in_id <=", value, "classroomSignInId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdIn(List<Long> values) {
+            addCriterion("classroom_sign_in_id in", values, "classroomSignInId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdNotIn(List<Long> values) {
+            addCriterion("classroom_sign_in_id not in", values, "classroomSignInId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdBetween(Long value1, Long value2) {
+            addCriterion("classroom_sign_in_id between", value1, value2, "classroomSignInId");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomSignInIdNotBetween(Long value1, Long value2) {
+            addCriterion("classroom_sign_in_id not between", value1, value2, "classroomSignInId");
             return (Criteria) this;
         }
 

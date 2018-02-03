@@ -545,52 +545,52 @@ public class MfClassroomSignInExample {
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLatitudeEqualTo(Long value) {
+        public Criteria andClassroomSignInLatitudeEqualTo(Double value) {
             addCriterion("classroom_sign_in_latitude =", value, "classroomSignInLatitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLatitudeNotEqualTo(Long value) {
+        public Criteria andClassroomSignInLatitudeNotEqualTo(Double value) {
             addCriterion("classroom_sign_in_latitude <>", value, "classroomSignInLatitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLatitudeGreaterThan(Long value) {
+        public Criteria andClassroomSignInLatitudeGreaterThan(Double value) {
             addCriterion("classroom_sign_in_latitude >", value, "classroomSignInLatitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLatitudeGreaterThanOrEqualTo(Long value) {
+        public Criteria andClassroomSignInLatitudeGreaterThanOrEqualTo(Double value) {
             addCriterion("classroom_sign_in_latitude >=", value, "classroomSignInLatitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLatitudeLessThan(Long value) {
+        public Criteria andClassroomSignInLatitudeLessThan(Double value) {
             addCriterion("classroom_sign_in_latitude <", value, "classroomSignInLatitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLatitudeLessThanOrEqualTo(Long value) {
+        public Criteria andClassroomSignInLatitudeLessThanOrEqualTo(Double value) {
             addCriterion("classroom_sign_in_latitude <=", value, "classroomSignInLatitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLatitudeIn(List<Long> values) {
+        public Criteria andClassroomSignInLatitudeIn(List<Double> values) {
             addCriterion("classroom_sign_in_latitude in", values, "classroomSignInLatitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLatitudeNotIn(List<Long> values) {
+        public Criteria andClassroomSignInLatitudeNotIn(List<Double> values) {
             addCriterion("classroom_sign_in_latitude not in", values, "classroomSignInLatitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLatitudeBetween(Long value1, Long value2) {
+        public Criteria andClassroomSignInLatitudeBetween(Double value1, Double value2) {
             addCriterion("classroom_sign_in_latitude between", value1, value2, "classroomSignInLatitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLatitudeNotBetween(Long value1, Long value2) {
+        public Criteria andClassroomSignInLatitudeNotBetween(Double value1, Double value2) {
             addCriterion("classroom_sign_in_latitude not between", value1, value2, "classroomSignInLatitude");
             return (Criteria) this;
         }
@@ -605,52 +605,52 @@ public class MfClassroomSignInExample {
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLongitudeEqualTo(Long value) {
+        public Criteria andClassroomSignInLongitudeEqualTo(Double value) {
             addCriterion("classroom_sign_in_longitude =", value, "classroomSignInLongitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLongitudeNotEqualTo(Long value) {
+        public Criteria andClassroomSignInLongitudeNotEqualTo(Double value) {
             addCriterion("classroom_sign_in_longitude <>", value, "classroomSignInLongitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLongitudeGreaterThan(Long value) {
+        public Criteria andClassroomSignInLongitudeGreaterThan(Double value) {
             addCriterion("classroom_sign_in_longitude >", value, "classroomSignInLongitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLongitudeGreaterThanOrEqualTo(Long value) {
+        public Criteria andClassroomSignInLongitudeGreaterThanOrEqualTo(Double value) {
             addCriterion("classroom_sign_in_longitude >=", value, "classroomSignInLongitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLongitudeLessThan(Long value) {
+        public Criteria andClassroomSignInLongitudeLessThan(Double value) {
             addCriterion("classroom_sign_in_longitude <", value, "classroomSignInLongitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLongitudeLessThanOrEqualTo(Long value) {
+        public Criteria andClassroomSignInLongitudeLessThanOrEqualTo(Double value) {
             addCriterion("classroom_sign_in_longitude <=", value, "classroomSignInLongitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLongitudeIn(List<Long> values) {
+        public Criteria andClassroomSignInLongitudeIn(List<Double> values) {
             addCriterion("classroom_sign_in_longitude in", values, "classroomSignInLongitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLongitudeNotIn(List<Long> values) {
+        public Criteria andClassroomSignInLongitudeNotIn(List<Double> values) {
             addCriterion("classroom_sign_in_longitude not in", values, "classroomSignInLongitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLongitudeBetween(Long value1, Long value2) {
+        public Criteria andClassroomSignInLongitudeBetween(Double value1, Double value2) {
             addCriterion("classroom_sign_in_longitude between", value1, value2, "classroomSignInLongitude");
             return (Criteria) this;
         }
 
-        public Criteria andClassroomSignInLongitudeNotBetween(Long value1, Long value2) {
+        public Criteria andClassroomSignInLongitudeNotBetween(Double value1, Double value2) {
             addCriterion("classroom_sign_in_longitude not between", value1, value2, "classroomSignInLongitude");
             return (Criteria) this;
         }
