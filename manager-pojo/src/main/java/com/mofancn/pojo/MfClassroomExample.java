@@ -425,6 +425,76 @@ public class MfClassroomExample {
             return (Criteria) this;
         }
 
+        public Criteria andClassroomQrcodeUrlIsNull() {
+            addCriterion("classroom_qrcode_url is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlIsNotNull() {
+            addCriterion("classroom_qrcode_url is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlEqualTo(String value) {
+            addCriterion("classroom_qrcode_url =", value, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlNotEqualTo(String value) {
+            addCriterion("classroom_qrcode_url <>", value, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlGreaterThan(String value) {
+            addCriterion("classroom_qrcode_url >", value, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("classroom_qrcode_url >=", value, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlLessThan(String value) {
+            addCriterion("classroom_qrcode_url <", value, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlLessThanOrEqualTo(String value) {
+            addCriterion("classroom_qrcode_url <=", value, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlLike(String value) {
+            addCriterion("classroom_qrcode_url like", value, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlNotLike(String value) {
+            addCriterion("classroom_qrcode_url not like", value, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlIn(List<String> values) {
+            addCriterion("classroom_qrcode_url in", values, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlNotIn(List<String> values) {
+            addCriterion("classroom_qrcode_url not in", values, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlBetween(String value1, String value2) {
+            addCriterion("classroom_qrcode_url between", value1, value2, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassroomQrcodeUrlNotBetween(String value1, String value2) {
+            addCriterion("classroom_qrcode_url not between", value1, value2, "classroomQrcodeUrl");
+            return (Criteria) this;
+        }
+
         public Criteria andClassroomCreditIsNull() {
             addCriterion("classroom_credit is null");
             return (Criteria) this;

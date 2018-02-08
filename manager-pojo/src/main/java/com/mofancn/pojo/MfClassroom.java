@@ -13,6 +13,8 @@ public class MfClassroom {
 
     private String classroomPassword;
 
+    private String classroomQrcodeUrl;
+
     private Integer classroomCredit;
 
     private Integer classroomPeriod;
@@ -65,6 +67,14 @@ public class MfClassroom {
 
     public void setClassroomPassword(String classroomPassword) {
         this.classroomPassword = classroomPassword == null ? null : classroomPassword.trim();
+    }
+
+    public String getClassroomQrcodeUrl() {
+        return classroomQrcodeUrl;
+    }
+
+    public void setClassroomQrcodeUrl(String classroomQrcodeUrl) {
+        this.classroomQrcodeUrl = classroomQrcodeUrl == null ? null : classroomQrcodeUrl.trim();
     }
 
     public Integer getClassroomCredit() {

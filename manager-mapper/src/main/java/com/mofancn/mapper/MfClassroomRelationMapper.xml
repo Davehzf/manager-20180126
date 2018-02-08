@@ -7,8 +7,8 @@
     <result column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="classroom_id" property="classroomId" jdbcType="BIGINT" />
     <result column="record" property="record" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="DATE" />
-    <result column="update_time" property="updateTime" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -106,8 +106,8 @@
       classroom_id, record, create_time, 
       update_time)
     values (#{mfRelationId,jdbcType=INTEGER}, #{valid,jdbcType=TINYINT}, #{userId,jdbcType=BIGINT}, 
-      #{classroomId,jdbcType=BIGINT}, #{record,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, 
-      #{updateTime,jdbcType=DATE})
+      #{classroomId,jdbcType=BIGINT}, #{record,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.mofancn.pojo.MfClassroomRelation" >
     insert into mf_classroom_relation
@@ -151,10 +151,10 @@
         #{record,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        #{createTime,jdbcType=DATE},
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        #{updateTime,jdbcType=DATE},
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -183,10 +183,10 @@
         record = #{record.record,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null" >
-        create_time = #{record.createTime,jdbcType=DATE},
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.updateTime != null" >
-        update_time = #{record.updateTime,jdbcType=DATE},
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -200,8 +200,8 @@
       user_id = #{record.userId,jdbcType=BIGINT},
       classroom_id = #{record.classroomId,jdbcType=BIGINT},
       record = #{record.record,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=DATE},
-      update_time = #{record.updateTime,jdbcType=DATE}
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -222,10 +222,10 @@
         record = #{record,jdbcType=INTEGER},
       </if>
       <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=DATE},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        update_time = #{updateTime,jdbcType=DATE},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where mf_relation_id = #{mfRelationId,jdbcType=INTEGER}
@@ -236,8 +236,8 @@
       user_id = #{userId,jdbcType=BIGINT},
       classroom_id = #{classroomId,jdbcType=BIGINT},
       record = #{record,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=DATE},
-      update_time = #{updateTime,jdbcType=DATE}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
     where mf_relation_id = #{mfRelationId,jdbcType=INTEGER}
   </update>
 </mapper>

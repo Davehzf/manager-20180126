@@ -17,6 +17,8 @@ public class MfClassroomSignIn {
 
     private String classroomSignInPassword;
 
+    private String mfClassroomSignQrcodeUrl;
+
     private Double classroomSignInLatitude;
 
     private Double classroomSignInLongitude;
@@ -81,6 +83,14 @@ public class MfClassroomSignIn {
 
     public void setClassroomSignInPassword(String classroomSignInPassword) {
         this.classroomSignInPassword = classroomSignInPassword == null ? null : classroomSignInPassword.trim();
+    }
+
+    public String getMfClassroomSignQrcodeUrl() {
+        return mfClassroomSignQrcodeUrl;
+    }
+
+    public void setMfClassroomSignQrcodeUrl(String mfClassroomSignQrcodeUrl) {
+        this.mfClassroomSignQrcodeUrl = mfClassroomSignQrcodeUrl == null ? null : mfClassroomSignQrcodeUrl.trim();
     }
 
     public Double getClassroomSignInLatitude() {

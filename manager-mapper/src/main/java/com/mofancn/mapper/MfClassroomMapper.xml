@@ -7,6 +7,7 @@
     <result column="classroom_name" property="classroomName" jdbcType="VARCHAR" />
     <result column="classroom_manager" property="classroomManager" jdbcType="BIGINT" />
     <result column="classroom_password" property="classroomPassword" jdbcType="VARCHAR" />
+    <result column="classroom_qrcode_url" property="classroomQrcodeUrl" jdbcType="VARCHAR" />
     <result column="classroom_credit" property="classroomCredit" jdbcType="INTEGER" />
     <result column="classroom_period" property="classroomPeriod" jdbcType="INTEGER" />
     <result column="classroom_schooltime" property="classroomSchooltime" jdbcType="INTEGER" />
@@ -75,8 +76,8 @@
   </sql>
   <sql id="Base_Column_List" >
     classroom_id, classroom_valid, classroom_name, classroom_manager, classroom_password, 
-    classroom_credit, classroom_period, classroom_schooltime, classroom_repetition, classroom_place, 
-    create_time, update_time
+    classroom_qrcode_url, classroom_credit, classroom_period, classroom_schooltime, classroom_repetition, 
+    classroom_place, create_time, update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mofancn.pojo.MfClassroomExample" >
     select
@@ -110,15 +111,15 @@
   </delete>
   <insert id="insert" parameterType="com.mofancn.pojo.MfClassroom" >
     insert into mf_classroom (classroom_id, classroom_valid, classroom_name, 
-      classroom_manager, classroom_password, classroom_credit, 
-      classroom_period, classroom_schooltime, classroom_repetition, 
-      classroom_place, create_time, update_time
-      )
+      classroom_manager, classroom_password, classroom_qrcode_url, 
+      classroom_credit, classroom_period, classroom_schooltime, 
+      classroom_repetition, classroom_place, create_time, 
+      update_time)
     values (#{classroomId,jdbcType=BIGINT}, #{classroomValid,jdbcType=TINYINT}, #{classroomName,jdbcType=VARCHAR}, 
-      #{classroomManager,jdbcType=BIGINT}, #{classroomPassword,jdbcType=VARCHAR}, #{classroomCredit,jdbcType=INTEGER}, 
-      #{classroomPeriod,jdbcType=INTEGER}, #{classroomSchooltime,jdbcType=INTEGER}, #{classroomRepetition,jdbcType=INTEGER}, 
-      #{classroomPlace,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+      #{classroomManager,jdbcType=BIGINT}, #{classroomPassword,jdbcType=VARCHAR}, #{classroomQrcodeUrl,jdbcType=VARCHAR}, 
+      #{classroomCredit,jdbcType=INTEGER}, #{classroomPeriod,jdbcType=INTEGER}, #{classroomSchooltime,jdbcType=INTEGER}, 
+      #{classroomRepetition,jdbcType=INTEGER}, #{classroomPlace,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.mofancn.pojo.MfClassroom" >
     insert into mf_classroom
@@ -137,6 +138,9 @@
       </if>
       <if test="classroomPassword != null" >
         classroom_password,
+      </if>
+      <if test="classroomQrcodeUrl != null" >
+        classroom_qrcode_url,
       </if>
       <if test="classroomCredit != null" >
         classroom_credit,
@@ -175,6 +179,9 @@
       </if>
       <if test="classroomPassword != null" >
         #{classroomPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="classroomQrcodeUrl != null" >
+        #{classroomQrcodeUrl,jdbcType=VARCHAR},
       </if>
       <if test="classroomCredit != null" >
         #{classroomCredit,jdbcType=INTEGER},
@@ -223,6 +230,9 @@
       <if test="record.classroomPassword != null" >
         classroom_password = #{record.classroomPassword,jdbcType=VARCHAR},
       </if>
+      <if test="record.classroomQrcodeUrl != null" >
+        classroom_qrcode_url = #{record.classroomQrcodeUrl,jdbcType=VARCHAR},
+      </if>
       <if test="record.classroomCredit != null" >
         classroom_credit = #{record.classroomCredit,jdbcType=INTEGER},
       </if>
@@ -256,6 +266,7 @@
       classroom_name = #{record.classroomName,jdbcType=VARCHAR},
       classroom_manager = #{record.classroomManager,jdbcType=BIGINT},
       classroom_password = #{record.classroomPassword,jdbcType=VARCHAR},
+      classroom_qrcode_url = #{record.classroomQrcodeUrl,jdbcType=VARCHAR},
       classroom_credit = #{record.classroomCredit,jdbcType=INTEGER},
       classroom_period = #{record.classroomPeriod,jdbcType=INTEGER},
       classroom_schooltime = #{record.classroomSchooltime,jdbcType=INTEGER},
@@ -281,6 +292,9 @@
       </if>
       <if test="classroomPassword != null" >
         classroom_password = #{classroomPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="classroomQrcodeUrl != null" >
+        classroom_qrcode_url = #{classroomQrcodeUrl,jdbcType=VARCHAR},
       </if>
       <if test="classroomCredit != null" >
         classroom_credit = #{classroomCredit,jdbcType=INTEGER},
@@ -312,6 +326,7 @@
       classroom_name = #{classroomName,jdbcType=VARCHAR},
       classroom_manager = #{classroomManager,jdbcType=BIGINT},
       classroom_password = #{classroomPassword,jdbcType=VARCHAR},
+      classroom_qrcode_url = #{classroomQrcodeUrl,jdbcType=VARCHAR},
       classroom_credit = #{classroomCredit,jdbcType=INTEGER},
       classroom_period = #{classroomPeriod,jdbcType=INTEGER},
       classroom_schooltime = #{classroomSchooltime,jdbcType=INTEGER},

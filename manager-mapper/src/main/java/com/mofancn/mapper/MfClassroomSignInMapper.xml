@@ -9,6 +9,7 @@
     <result column="classroom_sign_in_start_time" property="classroomSignInStartTime" jdbcType="TIMESTAMP" />
     <result column="classroom_sign_in_end_time" property="classroomSignInEndTime" jdbcType="TIMESTAMP" />
     <result column="classroom_sign_in_password" property="classroomSignInPassword" jdbcType="VARCHAR" />
+    <result column="mf_classroom_sign_qrcode_url" property="mfClassroomSignQrcodeUrl" jdbcType="VARCHAR" />
     <result column="classroom_sign_in_latitude" property="classroomSignInLatitude" jdbcType="DECIMAL" />
     <result column="classroom_sign_in_longitude" property="classroomSignInLongitude" jdbcType="DECIMAL" />
     <result column="classroom_sign_in_accuracy" property="classroomSignInAccuracy" jdbcType="DECIMAL" />
@@ -76,8 +77,8 @@
   <sql id="Base_Column_List" >
     classroom_sign_in_id, classroom_sign_in_manager, classroom_id, classroom_sign_in_valid, 
     classroom_sign_in_start_time, classroom_sign_in_end_time, classroom_sign_in_password, 
-    classroom_sign_in_latitude, classroom_sign_in_longitude, classroom_sign_in_accuracy, 
-    classroom_sign_in_create_time, classroom_sign_in_update_time
+    mf_classroom_sign_qrcode_url, classroom_sign_in_latitude, classroom_sign_in_longitude, 
+    classroom_sign_in_accuracy, classroom_sign_in_create_time, classroom_sign_in_update_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mofancn.pojo.MfClassroomSignInExample" >
     select
@@ -109,19 +110,21 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert"  useGeneratedKeys="true" keyProperty="classroomSignInId" parameterType="com.mofancn.pojo.MfClassroomSignIn">
+  <insert id="insert" useGeneratedKeys="true" keyProperty="classroomSignInId" parameterType="com.mofancn.pojo.MfClassroomSignIn" >
     insert into mf_classroom_sign_in (classroom_sign_in_id, classroom_sign_in_manager, 
       classroom_id, classroom_sign_in_valid, classroom_sign_in_start_time, 
       classroom_sign_in_end_time, classroom_sign_in_password, 
-      classroom_sign_in_latitude, classroom_sign_in_longitude, 
-      classroom_sign_in_accuracy, classroom_sign_in_create_time, 
-      classroom_sign_in_update_time)
+      mf_classroom_sign_qrcode_url, classroom_sign_in_latitude, 
+      classroom_sign_in_longitude, classroom_sign_in_accuracy, 
+      classroom_sign_in_create_time, classroom_sign_in_update_time
+      )
     values (#{classroomSignInId,jdbcType=BIGINT}, #{classroomSignInManager,jdbcType=BIGINT}, 
       #{classroomId,jdbcType=BIGINT}, #{classroomSignInValid,jdbcType=TINYINT}, #{classroomSignInStartTime,jdbcType=TIMESTAMP}, 
       #{classroomSignInEndTime,jdbcType=TIMESTAMP}, #{classroomSignInPassword,jdbcType=VARCHAR}, 
-      #{classroomSignInLatitude,jdbcType=DECIMAL}, #{classroomSignInLongitude,jdbcType=DECIMAL}, 
-      #{classroomSignInAccuracy,jdbcType=DECIMAL}, #{classroomSignInCreateTime,jdbcType=TIMESTAMP}, 
-      #{classroomSignInUpdateTime,jdbcType=TIMESTAMP})
+      #{mfClassroomSignQrcodeUrl,jdbcType=VARCHAR}, #{classroomSignInLatitude,jdbcType=DECIMAL}, 
+      #{classroomSignInLongitude,jdbcType=DECIMAL}, #{classroomSignInAccuracy,jdbcType=DECIMAL}, 
+      #{classroomSignInCreateTime,jdbcType=TIMESTAMP}, #{classroomSignInUpdateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.mofancn.pojo.MfClassroomSignIn" >
     insert into mf_classroom_sign_in
@@ -146,6 +149,9 @@
       </if>
       <if test="classroomSignInPassword != null" >
         classroom_sign_in_password,
+      </if>
+      <if test="mfClassroomSignQrcodeUrl != null" >
+        mf_classroom_sign_qrcode_url,
       </if>
       <if test="classroomSignInLatitude != null" >
         classroom_sign_in_latitude,
@@ -184,6 +190,9 @@
       </if>
       <if test="classroomSignInPassword != null" >
         #{classroomSignInPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="mfClassroomSignQrcodeUrl != null" >
+        #{mfClassroomSignQrcodeUrl,jdbcType=VARCHAR},
       </if>
       <if test="classroomSignInLatitude != null" >
         #{classroomSignInLatitude,jdbcType=DECIMAL},
@@ -232,6 +241,9 @@
       <if test="record.classroomSignInPassword != null" >
         classroom_sign_in_password = #{record.classroomSignInPassword,jdbcType=VARCHAR},
       </if>
+      <if test="record.mfClassroomSignQrcodeUrl != null" >
+        mf_classroom_sign_qrcode_url = #{record.mfClassroomSignQrcodeUrl,jdbcType=VARCHAR},
+      </if>
       <if test="record.classroomSignInLatitude != null" >
         classroom_sign_in_latitude = #{record.classroomSignInLatitude,jdbcType=DECIMAL},
       </if>
@@ -261,6 +273,7 @@
       classroom_sign_in_start_time = #{record.classroomSignInStartTime,jdbcType=TIMESTAMP},
       classroom_sign_in_end_time = #{record.classroomSignInEndTime,jdbcType=TIMESTAMP},
       classroom_sign_in_password = #{record.classroomSignInPassword,jdbcType=VARCHAR},
+      mf_classroom_sign_qrcode_url = #{record.mfClassroomSignQrcodeUrl,jdbcType=VARCHAR},
       classroom_sign_in_latitude = #{record.classroomSignInLatitude,jdbcType=DECIMAL},
       classroom_sign_in_longitude = #{record.classroomSignInLongitude,jdbcType=DECIMAL},
       classroom_sign_in_accuracy = #{record.classroomSignInAccuracy,jdbcType=DECIMAL},
@@ -291,6 +304,9 @@
       <if test="classroomSignInPassword != null" >
         classroom_sign_in_password = #{classroomSignInPassword,jdbcType=VARCHAR},
       </if>
+      <if test="mfClassroomSignQrcodeUrl != null" >
+        mf_classroom_sign_qrcode_url = #{mfClassroomSignQrcodeUrl,jdbcType=VARCHAR},
+      </if>
       <if test="classroomSignInLatitude != null" >
         classroom_sign_in_latitude = #{classroomSignInLatitude,jdbcType=DECIMAL},
       </if>
@@ -317,6 +333,7 @@
       classroom_sign_in_start_time = #{classroomSignInStartTime,jdbcType=TIMESTAMP},
       classroom_sign_in_end_time = #{classroomSignInEndTime,jdbcType=TIMESTAMP},
       classroom_sign_in_password = #{classroomSignInPassword,jdbcType=VARCHAR},
+      mf_classroom_sign_qrcode_url = #{mfClassroomSignQrcodeUrl,jdbcType=VARCHAR},
       classroom_sign_in_latitude = #{classroomSignInLatitude,jdbcType=DECIMAL},
       classroom_sign_in_longitude = #{classroomSignInLongitude,jdbcType=DECIMAL},
       classroom_sign_in_accuracy = #{classroomSignInAccuracy,jdbcType=DECIMAL},
